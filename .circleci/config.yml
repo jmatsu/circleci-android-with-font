@@ -1,21 +1,21 @@
 version: 2
 jobs:
- build:
-  docker:
-    - image: circleci/ruby:2.5.1
-  working_directory: ~/circleci-android-with-font
-  steps:
-    - checkout
-    - setup_remote_docker:   # (2)
-        docker_layer_caching: true # (3)
-    - run:
-        name: Install Docker client
-        command: |
-          VER="18.09.0-ce"
-          curl -L -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
-          tar -xz -C /tmp -f /tmp/docker-$VER.tgz
-          mv /tmp/docker/* /usr/bin
-     - run:
-        name: Login to docker
-        command: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-     - run: ./create_dockerfiles.rb
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1
+    working_directory: ~/circleci-android-with-font
+    steps:
+      - checkout
+      - setup_remote_docker:   # (2)
+          docker_layer_caching: true # (3)
+      - run:
+          name: Install Docker client
+          command: |
+            VER="18.09.0-ce"
+            curl -L -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
+            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+            mv /tmp/docker/* /usr/bin
+      - run:
+          name: Login to docker
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - run: ./create_dockerfiles.rb
