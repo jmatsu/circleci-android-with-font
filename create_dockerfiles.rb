@@ -29,6 +29,7 @@ end
 
 for_each_dockerfile do |api_version, name|
   container="jmatsu/android:api-#{api_version}"
+  puts "#{container} will be built"
   system!('docker', 'build', '-t', container, '-f', name, '.')
   system!('docker', 'push', container)
 end

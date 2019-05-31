@@ -10,5 +10,5 @@ jobs:
           docker_layer_caching: true
       - run:
           name: Login to docker
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+          command: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
       - run: ./create_dockerfiles.rb
