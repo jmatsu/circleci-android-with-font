@@ -1,0 +1,8 @@
+FROM circleci/android:api-<%= api_version %>
+
+LABEL maintainer="jmatsu.drm@gmail.com"
+
+RUN sudo apt-get update && \
+    sudo apt-get install --no-install-recommends --yes \
+        libfontconfig1 && \
+        sudo rm -rf /var/lib/apt/lists/*
