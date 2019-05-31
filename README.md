@@ -1,12 +1,16 @@
-Docker images are based on CircleCI's android images but these can use java.awt.font.
+This repository is to build compatible docker images with libraries which use font modules. e.g. [maskarade/gradle-android-ribbonizer-plugin](https://github.com/maskarade/gradle-android-ribbonizer-plugin)
 
-For example, https://github.com/maskarade/gradle-android-ribbonizer-plugin works with these images.
+Images are regulary built every day at 12:00am UTC.
 
 ref: https://github.com/circleci/circleci-images
 
+### Motivation
+
+Currently, CircleCI's android images do not work with font modules like java.awt.font due to base jdk images. Therefore, [maskarade/gradle-android-ribbonizer-plugin](https://github.com/maskarade/gradle-android-ribbonizer-plugin) does not work with the current CircleCI images unfortunately.
+
 ### How to use
 
-You need to rename `circleci` to `jmatsu` of docker image.
+You need to rename a namespace of docker image from `circleci` to `jmatsu`.
 
 *Before*
 

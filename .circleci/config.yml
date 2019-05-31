@@ -12,3 +12,16 @@ jobs:
           name: Login to docker
           command: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
       - run: ./create_dockerfiles.rb
+
+workflows:
+  version: 2
+  scheduled_update:
+    jobs:
+      - build
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
