@@ -4,7 +4,7 @@ require 'erb'
 require 'fileutils'
 
 MIN_SDK=27
-MAX_SDK=27
+MAX_SDK=29
 DOCKERFILE_DIR='build'
 
 def for_each_dockerfile(&b)
