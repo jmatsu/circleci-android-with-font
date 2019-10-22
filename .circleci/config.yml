@@ -6,8 +6,7 @@ jobs:
     working_directory: ~/circleci-android-with-font
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - setup_remote_docker
       - run:
           name: Login to docker
           command: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
